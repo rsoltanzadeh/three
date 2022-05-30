@@ -21,7 +21,7 @@ const material = new THREE.MeshStandardMaterial({
 const torus = new THREE.Mesh(geometry, material);
 // scene.add(torus);
 
-const atabakiTexture = new THREE.TextureLoader().load('atabaki.jpg');
+const atabakiTexture = await new THREE.TextureLoader().loadAsync('atabaki.jpg');
 
 const atabaki = new THREE.Mesh(
     new THREE.BoxGeometry(10,10,10),
@@ -45,7 +45,7 @@ scene.add(lightHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-const spaceTexture = new THREE.TextureLoader().load('night_sky.jpg');
+const spaceTexture = await new THREE.TextureLoader().loadAsync('night_sky.jpg');
 scene.background = spaceTexture;
 
 function addStar() {
