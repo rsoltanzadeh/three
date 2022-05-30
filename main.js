@@ -1,5 +1,8 @@
 import './style.css';
 
+import atabakiUrl from './atabaki.jpg';
+import nightSkyUrl from './night_sky.jpg';
+
 import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -21,10 +24,7 @@ const material = new THREE.MeshStandardMaterial({
 const torus = new THREE.Mesh(geometry, material);
 // scene.add(torus);
 
-const atabakiTexture = (async () => {
-    const texture = await new THREE.TextureLoader().loadAsync('atabaki.jpg');
-    return texture;
-})();
+const atabakiTexture = new THREE.TextureLoader().load(atabakiUrl);
 
 const atabaki = new THREE.Mesh(
     new THREE.BoxGeometry(10,10,10),
@@ -48,10 +48,7 @@ scene.add(lightHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-const spaceTexture = (async () => {
-    const texture = await new THREE.TextureLoader().loadAsync('night_sky.jpg');
-    return texture;
-})();
+const spaceTexture = new THREE.TextureLoader().load(nightSkyUrl);
 
 scene.background = spaceTexture;
 
